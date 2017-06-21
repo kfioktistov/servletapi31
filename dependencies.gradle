@@ -1,0 +1,38 @@
+// define versions used in multiple dependencies
+def springVer = "4.3.8.RELEASE"
+
+ext {
+  // define single dependencies
+  libs = [
+          servlet             : "javax.servlet:javax.servlet-api:3.1.0",
+
+          springCore          : "org.springframework:spring-core:$springVer",
+          springContext       : "org.springframework:spring-context:$springVer",
+          springWeb           : "org.springframework:spring-web:$springVer",
+          springWebmvc        : "org.springframework:spring-webmvc:$springVer",
+          springBeans         : "org.springframework:spring-beans:$springVer",
+          springJdbc          : "org.springframework:spring-jdbc:$springVer",
+          springTx            : "org.springframework:spring-tx:$springVer",
+
+          commonsLang3        : "org.apache.commons:commons-lang3:3.4",
+          commonsCollections  : "org.apache.commons:commons-collections4:4.1",
+          commonsIO           : "commons-io:commons-io:2.4",
+          commonsBeanutils    : "commons-beanutils:commons-beanutils:1.9.2",
+          commonCodec         : "commons-codec:commons-codec:1.10",
+          google_guava        : 'com.google.guava:guava:19.0',
+
+          slf4jApi            : "org.slf4j:slf4j-api:1.7.21",
+          logbackClassic      : "ch.qos.logback:logback-classic:1.1.7",
+
+          // test
+          testng              : "org.testng:testng:6.9.10",
+          mockito             : "org.mockito:mockito-all:1.10.19",
+          springTest          : "org.springframework:spring-test:$springVer",
+
+  ]
+
+  // define groups that often used together
+  libs.test = [libs.testng, libs.mockito, libs.springTest]
+  libs.spring = [libs.springCore, libs.springContext, libs.springWeb, libs.springWebmvc, libs.springBeans, libs.springJdbc, libs.springTx]
+  libs.logging = [libs.slf4jApi, libs.logbackClassic]
+}

@@ -1,0 +1,15 @@
+apply plugin: 'war'
+apply plugin: 'org.akhikhl.gretty'
+
+dependencies {
+    compile project(":initializer")
+
+    compile libs.spring
+    compile libs.logging
+    providedCompile libs.servlet
+}
+
+gretty {
+    port = 8080
+    contextPath = '/'
+}

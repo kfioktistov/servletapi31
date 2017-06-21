@@ -1,0 +1,22 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:1.4.0'
+    }
+}
+
+apply from: "dependencies.gradle"
+apply plugin: 'org.akhikhl.gretty'
+
+allprojects {
+    apply plugin: 'java'
+
+    repositories {
+        mavenCentral()
+    }
+
+    version = "$buildVersion.$buildNumber"
+}
